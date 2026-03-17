@@ -3,190 +3,286 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vasile Veres | Bioénergéticien à Étriché - Espace Santé Harmonia</title>
+    <title>Vasile VERES bioénergéticien</title>
     
-    <!-- SEO OPTIMISÉ -->
-    <meta name="description" content="Vasile Veres, praticien certifié en bioénergie à Étriché. Découvrez l'équilibre énergétique, la méthode Acmos et libérez vos blocages vitaux.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        /* CONFIGURATION GÉNÉRALE */
-        :root {
-            --primary: #6a4c93;
-            --accent: #4caf50;
-            --glass: rgba(255, 255, 255, 0.85);
-        }
-
+        /* FOND DU SITE */
         body, html {
             margin: 0; padding: 0;
-            font-family: 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             background: url('image_00.jpg') no-repeat center center fixed;
             background-size: cover;
             color: #333;
-            scroll-behavior: smooth;
+            line-height: 1.6;
         }
 
-        /* NAVIGATION */
-        nav {
-            position: fixed; top: 0; width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            z-index: 1000;
-            display: flex; justify-content: center;
-        }
-        nav ul { list-style: none; display: flex; margin: 0; padding: 15px; flex-wrap: wrap; justify-content: center; }
-        nav ul li { margin: 0 15px; }
-        nav ul li a { text-decoration: none; color: var(--primary); font-weight: 600; text-transform: uppercase; font-size: 0.9rem; transition: 0.3s; }
-        nav ul li a:hover { color: var(--accent); }
-
-        /* STRUCTURE DES PAGES */
-        .page-section {
+        /* CONTENEUR PRINCIPAL BLANC (façon page Word/Wordpress) */
+        .main-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
             min-height: 100vh;
-            padding: 100px 20px 40px;
-            display: flex; flex-direction: column; align-items: center;
-            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
         }
 
-        .content-card {
-            background: var(--glass);
-            padding: 40px;
-            border-radius: 20px;
-            max-width: 850px;
+        /* IMAGE D'ACCUEIL TOUT EN HAUT */
+        .hero-image {
             width: 100%;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-            backdrop-filter: blur(5px);
+            height: 400px;
+            object-fit: cover;
+            display: block;
         }
 
-        h1, h2 { color: var(--primary); text-align: center; }
-        h2 { border-bottom: 2px solid var(--accent); padding-bottom: 10px; margin-bottom: 30px; }
+        /* EN-TÊTE TITRE */
+        .header-title {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        .header-title h1 {
+            font-size: 2.5rem;
+            color: #444;
+            font-weight: 300;
+            margin: 0 0 10px 0;
+        }
+        .header-title p {
+            color: #888;
+            font-size: 1.1rem;
+            margin: 0;
+        }
 
-        /* IMAGES ET MÉDIAS ADAPTÉS (NON ENVAHISSANTS) */
-        .img-container { text-align: center; margin: 20px 0; }
-        .img-small { max-width: 350px; width: 100%; border-radius: 12px; border: 3px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .video-small { max-width: 300px; width: 100%; border-radius: 15px; }
+        /* BARRE DE MENU CLIQUEABLE */
+        .menu-bar {
+            background-color: #1abc9c; /* Couleur cyan/turquoise classique Wordpress */
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .menu-bar button {
+            background: none;
+            border: none;
+            color: #ffffff;
+            padding: 15px 25px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-family: inherit;
+        }
+        .menu-bar button:hover, .menu-bar button.active {
+            background-color: #16a085;
+        }
+
+        /* VIDÉO HORIZONTALE SOUS LE MENU */
+        .video-banner {
+            width: 100%;
+            height: 250px;
+            object-fit: cover; /* Permet de couper la vidéo à l'horizontale proprement */
+            display: block;
+        }
+
+        /* CONTENU DES ONGLETS */
+        .tab-content {
+            display: none; /* Masqué par défaut */
+            padding: 40px 50px;
+            background-color: #ffffff;
+            animation: fadeIn 0.5s;
+        }
+        .tab-content.active {
+            display: block; /* Affiché si actif */
+        }
+        .tab-content h2 {
+            color: #444;
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .tab-content p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
 
         /* TÉMOIGNAGES */
-        .testimonial-grid { display: grid; gap: 20px; }
-        .testimonial { background: rgba(106, 76, 147, 0.1); padding: 20px; border-radius: 10px; border-left: 5px solid var(--primary); font-style: italic; }
+        .testimonial-box {
+            background-color: #f9f9f9;
+            border-left: 4px solid #1abc9c;
+            padding: 20px;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        .testimonial-box strong {
+            display: block;
+            margin-top: 10px;
+            font-style: normal;
+            color: #1abc9c;
+        }
 
-        /* CONTACT */
-        .contact-buttons { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 30px; }
-        .btn { text-decoration: none; padding: 15px; border-radius: 50px; color: white; text-align: center; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.3s; }
-        .btn:hover { transform: translateY(-3px); opacity: 0.9; }
-        .wa { background: #25D366; } .sms { background: #3498db; } .mail { background: #e74c3c; }
+        /* BOUTONS DE CONTACT */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
+        .btn-contact {
+            text-decoration: none; padding: 15px; border-radius: 5px; color: white; text-align: center; font-weight: bold;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+        }
+        .whatsapp { background-color: #25D366; }
+        .sms { background-color: #3498db; }
+        .email { background-color: #e74c3c; }
 
-        footer { text-align: center; padding: 20px; background: white; font-size: 0.8rem; margin-top: 40px; }
+        /* ANIMATION */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-        @media (max-width: 600px) {
-            nav ul li { margin: 5px 10px; }
-            .content-card { padding: 20px; }
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero-image { height: 250px; }
+            .header-title h1 { font-size: 2rem; }
+            .tab-content { padding: 20px; }
+            .menu-bar button { padding: 15px; width: 100%; border-bottom: 1px solid rgba(255,255,255,0.1); }
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <ul>
-            <li><a href="#accueil">Accueil</a></li>
-            <li><a href="#bio">Qui suis-je ?</a></li>
-            <li><a href="#pratique">Ma Pratique</a></li>
-            <li><a href="#temoignages">Témoignages</a></li>
-            <li><a href="#infos">Infos Pratiques</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <div class="main-container">
+        
+        <!-- 1. IMAGE D'ACCUEIL EN HAUT -->
+        <img src="image_00.jpg" alt="Lotus" class="hero-image">
 
-    <!-- ACCUEIL -->
-    <section id="accueil" class="page-section">
-        <div class="content-card" style="text-align: center;">
-            <h1>Vasile Veres</h1>
-            <p style="font-size: 1.3rem; color: #555;">Praticien en Bioénergie à l'Espace Santé Harmonia</p>
-            <p>Retrouvez votre équilibre vital et libérez vos blocages grâce à une approche globale de la santé.</p>
-            <div class="img-container">
-                <video autoplay loop muted playsinline class="video-small">
-                    <source src="DNA.mp4" type="video/mp4">
-                </video>
-            </div>
+        <!-- 2. TITRE DU SITE -->
+        <div class="header-title">
+            <h1>Vasile VERES bioénergéticien</h1>
+            <p>- bilans/équilibrage énergétique, accompagnement bien-être -</p>
         </div>
-    </section>
 
-    <!-- QUI SUIS-JE (RÉSUMÉ DU PARCOURS) -->
-    <section id="bio" class="page-section">
-        <div class="content-card">
-            <h2>Qui suis-je ?</h2>
-            <p>D’origine roumaine, mon parcours a débuté en 1982 et s’est enrichi au fil de métiers variés : industrie, commerce, jardinage et horticulture bio. C’est cette connexion profonde au vivant qui m’a mené vers la bioénergie.</p>
-            <p>Formé à l’<strong>IBST</strong> par Jean-Christophe Soliverès, j'ai trouvé ma vocation : contribuer régulièrement au bien-être de mon entourage. Mon approche est guidée par l'écoute, la patience et un savoir ancestral adapté aux besoins modernes pour (se) faire du bien et accompagner les moments difficiles.</p>
+        <!-- 3. BARRE DE MENU (ONGLETS) -->
+        <div class="menu-bar">
+            <button class="tab-link active" onclick="openTab(event, 'therapie')">THÉRAPIE PROPOSÉE</button>
+            <button class="tab-link" onclick="openTab(event, 'temoignages')">TÉMOIGNAGES</button>
+            <button class="tab-link" onclick="openTab(event, 'infos')">INFORMATIONS PRATIQUES</button>
         </div>
-    </section>
 
-    <!-- MA PRATIQUE (INFOS WORDPRESS + IMAGE 10) -->
-    <section id="pratique" class="page-section">
-        <div class="content-card">
-            <h2>La Thérapie Bioénergétique</h2>
-            <p>La bioénergie permet de mesurer et de rétablir les champs énergétiques qui entourent et animent chaque être humain. Je m'appuie sur des concepts de médecine traditionnelle et des innovations modernes pour identifier les blocages (physiques ou émotionnels).</p>
-            <p><strong>Le but de la séance :</strong> Rétablir la circulation fluide de l'énergie dans vos méridiens et chakras pour relancer les capacités naturelles d'auto-régulation de votre corps.</p>
+        <!-- 4. VIDÉO EN BANNIÈRE HORIZONTALE -->
+        <video src="DNA.mp4" class="video-banner" autoplay loop muted playsinline></video>
+
+        <!-- 5. CONTENU DES RUBRIQUES -->
+        
+        <!-- RUBRIQUE : THÉRAPIE -->
+        <div id="therapie" class="tab-content active">
+            <h2>Présentation de la thérapie proposée</h2>
+            <p>Le métier de bioénergéticien est encore peu connu. Cependant, on constate un intérêt croissant, de plus en plus de personnes – par simple curiosité, ou parce qu’elles n’ont pas les réponses aidantes ailleurs, ou encore stimulées par des proches ayant déjà « goûté »- cherchent ce genre de thérapies. Mais de quoi s’agit-il? Je ferai de mon mieux pour vous présenter les choses et j’espère vous aider à clarifier les points qui vous semblent importants.</p>
             
-            <div class="img-container">
-                <img src="image_10.jpg" alt="Équilibre énergétique" class="img-small">
-                <p><small>L'équilibre du Tore énergétique autour du corps.</small></p>
-            </div>
-
-            <p>Cette méthode est particulièrement efficace pour les fatigues inexpliquées, le stress chronique ou en complément d'un suivi médical pour optimiser la récupération.</p>
-        </div>
-    </section>
-
-    <!-- TÉMOIGNAGES (BRUNO C. + AUTRES) -->
-    <section id="temoignages" class="page-section">
-        <div class="content-card">
-            <h2>Vos témoignages</h2>
-            <div class="testimonial-grid">
-                <div class="testimonial">
-                    "Je recommande le travail de Vasile les yeux fermés ! Il est attentionné et à l'écoute à chaque instant. Et surtout, je ressens clairement les bénéfices de mes bilans à son cabinet. Je suis très ravi de son accompagnement."
-                    <br><strong>— Bruno C., 25 ans</strong>
-                </div>
-                <div class="testimonial">
-                    "Une grande écoute et un professionnalisme rassurant. On se sent vraiment pris en charge dans notre globalité."
-                    <br><strong>— Marie L.</strong>
-                </div>
-                <div class="testimonial">
-                    "Vasile possède un vrai don pour apaiser les tensions. Les séances m'ont beaucoup aidé après une période de stress intense."
-                    <br><strong>— Jean-Pierre D.</strong>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- INFOS PRATIQUES (IMAGE 5) -->
-    <section id="infos" class="page-section">
-        <div class="content-card">
-            <h2>Informations Pratiques</h2>
-            <p>Je vous accueille dans un cadre apaisant et professionnel au sein de l'Espace Santé Harmonia.</p>
-            <p><strong>Lieu :</strong> Étriché (49330), Maine-et-Loire.</p>
-            <div class="img-container">
-                <img src="image_5.jpg" alt="Cabinet Vasile Veres" class="img-small">
-                <p><small>Le cabinet de consultation en présentiel.</small></p>
-            </div>
-            <p><em>Séances sur rendez-vous uniquement.</em></p>
-        </div>
-    </section>
-
-    <!-- CONTACT (DIRECT SMS/WA/MAIL) -->
-    <section id="contact" class="page-section">
-        <div class="content-card">
-            <h2>Me contacter</h2>
-            <p style="text-align: center;">Vasile Veres<br><strong>07 82 20 94 04</strong><br>vasyridi108@gmail.com</p>
+            <p>En tout premier rang, je vous propose qu’on se méfie (autant moi que vous) de faire la moindre comparaison à d’autres thérapies/activités énergétiques – chaque chose a sa place et beaucoup sont bien complémentaires. Il reste à chacun(e) de suivre…son instinct, ses ressentis intérieurs et choisir un chemin ou un autre (tout en gardant à l’esprit qu’à tout moment nous sommes en droit de changer de direction, passer sur un autre chemin).</p>
             
-            <div class="contact-buttons">
-                <a href="https://wa.me/33782209404" class="btn wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                <a href="sms:+33782209404" class="btn sms"><i class="fas fa-comment-sms"></i> Envoyer un SMS</a>
-                <a href="mailto:vasyridi108@gmail.com" class="btn mail"><i class="fas fa-envelope"></i> Envoyer un Email</a>
+            <p>La bioénergétique – comme thérapie- se base sur des principes à la fois de la physique classique et de la quantique (alors qu’elle est une branche de la biochimie!). C’est-à-dire : les interactions entre les champs électro-magnétiques et les forces qui peuvent intervenir et transformer ces pulsations en force motrice, mécanique – étudiées par la physique classique- sont combinées avec le principe des ondes scalaires et les résonances osmotiques, connues plutôt dans la physique quantique.</p>
+            
+            <p>Comment cela fonctionne-t-il? Une fois que la personne désireuse – on va l’appeler « sujet » (d’une recherche)- donne son accord, avec le thérapeute et l’intermédiaire (qui est une antenne) un circuit se crée. Un circuit par lequel le corps du sujet interrogé fournit des réponses aux questions formulées par le thérapeute et adressées directement…aux cellules du corps investigué. Ainsi, le corps décide et informe sur les possibles actions auxquelles il est prêt à faire face et dans quel ordre – pour retrouver son équilibre. Le générateur du circuit (le thérapeute) cherchant une vibration correspondant à une fréquence choisie par rapport à la question à poser, provoque une onde électro-magnétique qui induit (dans l’intermédiaire – l’antenne) un courant de Foucault qui rend l’antenne sensible aux forces de Laplace. Résultat : l’énergie électro-magnétique est convertie (par résonance et rupture d’équilibre) en énergie mécanique. Cela mène à un basculement de l’instrument – que l’on traduit en réponse à la question.</p>
+            
+            <p>La physique quantique intervient au niveau des ondes émises – qui ne seront pas des ondes électro-magnétiques en 2D, mais en fait des ondes scalaires, qui ont une structure 3D. Elles forment des vortex d’énergie, rendant l’information plus pénétrante, plus profonde. Les résonances osmotiques auront lieu entre la puissance du principe actif des certains produits utilisés (huiles essentielles, minéraux, oligo-éléments…) et les ondes émises par le corps du sujet confirmant -ou pas- le besoin du moment.</p>
+            
+            <p>Et voilà comment le thérapeute réussit à trouver des réponses, des solutions possibles pour aider le corps du sujet à retrouver son équilibre. Le tout lié aux réponses des cellules du corps et aux résonances dans l’interaction entre le générateur (thérapeute), l’intermédiaire (l’antenne) et le sujet qui est – à tout de rôle- émetteur des informations recherchées , puis récepteur du principe actif du(des) produit(s) qui lui est(sont) nécessaire(s).</p>
+            
+            <p>Bien évidemment, il n’est jamais garanti l’effet immédiat – souvent plusieurs bilans ou soins spécifiques étant nécessaires, selon l’ancienneté/profondeur du problème déstabilisant qui provoque le déséquilibre.</p>
+            
+            <p>Espérant d’avoir été assez clair et que les choses vous semblent maintenant plus simples, je vous invite à réfléchir et…décider de venir me voir pour vous donner la chance de poser les questions restées sans réponse.</p>
+            
+            <p>A bientôt – si vous auriez besoin de plus de temps pour réfléchir, revenez au moins ici, peut-être trouverez-vous d’autres articles postés qui vous aideront. J’estime pouvoir compter aussi sur des témoignages des personnes que je suis déjà. Je suis en attente de ces retours.</p>
+        </div>
+
+        <!-- RUBRIQUE : TÉMOIGNAGES -->
+        <div id="temoignages" class="tab-content">
+            <h2>Témoignages</h2>
+            
+            <div class="testimonial-box">
+                « Une belle rencontre avec une belle énergie. Une personne passionnée et efficace, je me suis senti beaucoup mieux après la première séance. Je vous recommande chaleureusement Vasile. »
+                <strong>— Alex C., 44 ans</strong>
+            </div>
+
+            <div class="testimonial-box">
+                « J’ai la chance de faire des bilans énergétiques avec ce grand monsieur, cet artisan de lumière. J’ai été juste émerveillée par l’efficacité de sa pratique autant sur le plan physique, psychique qu’émotionnel sur moi. En effet, j’ai retrouvé équilibre, joie, sérénité et apaisement simplement à la fin d’un bilan. Pour moi c’est juste extraordinaire et puissant. Je remercie fortement cet homme de cœur pour son authenticité, son humour, son accueil bienveillant et sa qualité de soin. Un beau cadeau que j’offre à mon corps. »
+                <strong>— Sangoeuy T., 48 ans</strong>
+            </div>
+
+            <div class="testimonial-box">
+                « Je recommande le travail de Vasile les yeux fermés ! Il est attentionné et à l'écoute à chaque instant. Et surtout, je ressens clairement les bénéfices de mes bilan à son cabinet. Je suis très ravi de son accompagnement. »
+                <strong>— Bruno C., 25 ans</strong>
             </div>
         </div>
-    </section>
 
-    <footer>
-        <p>&copy; 2024 Vasile Veres - Bioénergie Étriché | Hébergé sur GitHub</p>
-    </footer>
+        <!-- RUBRIQUE : INFORMATIONS PRATIQUES -->
+        <div id="infos" class="tab-content">
+            <h2>Informations pratiques</h2>
+            
+            <p>Vous avez tout (ou partiellement) lu jusqu’ici? Les autres articles/thèmes postés sur ce site, je veux dire. Bravo! Et merci pour votre patience!</p>
+            
+            <p>Maintenant, si vous êtes là, on va supposer que vous êtes vraiment intéressé(e) et alors…je vous dois la suite, non? C’est-à-dire les infos qui pourront vous emmener à moi, au cabinet. Avant tout, il serait bien que vous me contactiez – soit par mail (vasyridi108@gmail.com), soit au téléphone : 07 82 20 94 04 (SMS ou appel).</p>
+            
+            <!-- BOUTONS DE CONTACT DIRECT -->
+            <div class="contact-grid">
+                <a href="https://wa.me/33782209404" class="btn-contact whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="sms:+33782209404" class="btn-contact sms"><i class="fas fa-comment-sms"></i> SMS</a>
+                <a href="mailto:vasyridi108@gmail.com" class="btn-contact email"><i class="fas fa-envelope"></i> Email</a>
+            </div>
+
+            <p>Une fois établi le contact (et le rendez-vous, de préférence..), vous devez vous déplacer vers la commune d’Etriché (sauf si vous habitez trop loin et..vous optez pour les bilans à distance). Quand vous serez arrivé(e) dans la commune, le cabinet se trouve dans l’espace L’Harmonia, l’adresse est : <strong>5B rue du Patisseau (code postal 49330)</strong>. Que vous arriviez du côté d’Angers ou Mans, vous allez traverser la commune vers l’église, après vous montez vers le cimetière et…l’espace se trouve juste là, face à ce joyeux lieu.</p>
+            
+            <p>Avant de prendre le rendez-vous, je vous précise aussi les tarifs (espérant que ce « détail » ne vous refroidira pas..) :</p>
+            <ul>
+                <li><strong>Pour un bilan complet</strong> (le plus indiqué toujours, pour aller au plus profond et faire « le point ») : 50 euros, (40 euros pour enfants).</li>
+                <li><strong>Pour un soin plus court</strong> (un problème spécifique, si vous croyez/supposez connaitre l’origine et voulez vous limiter à cela) : 30 euros.</li>
+                <li><strong>Tarif animaux</strong> : 30 euros.</li>
+            </ul>
+
+            <p>Peut-être est-il bon à savoir aussi que j’offre un premier bilan à une personne ( ou animal..) de votre entourage – si vous avez pris votre bilan et désirez faire découvrir à vos proches.</p>
+
+            <p>Je précise aussi que les bilans/soins se font INDIVIDUELLEMENT – si quelqu’un accompagne (son enfant, son mari/épouse…) sera prié(e) de patienter dans la salle d’attente. Question pratique et d’éthique.</p>
+
+            <p>Je crois avoir donné les infos nécessaires/utiles – sinon, n’hésitez pas de me contacter pour en avoir plus. Et si jamais mon portable est éteint (vous tombez sur le répondeur) cela veut dire que je suis en bilan/soin et vous pourrez me laisser un message (vocal ou SMS) ou réessayez.</p>
+
+            <p>Si jamais vous attendez pour la partie « témoignages » -encore en construction-, sachez que moi aussi…j’attends pour faire un recueil de retours assez intéressant à poster/lire. Merci encore de votre attention et patience, à bientôt!</p>
+
+            <div style="background-color: #fff3cd; border-left: 5px solid #ffc107; padding: 20px; margin-top: 30px;">
+                <h3 style="color: #856404; margin-top:0;">Important à savoir !</h3>
+                <p style="color: #856404; margin-bottom: 0;">Une chose qui est loin d’être anodine : pour toute personne désirant me voir (pour un bilan/soin, évidemment..) et ayant un traitement médical en cours, il serait convenable de venir au cabinet avec tous les médicaments – surtout s’il s’agit d’une médication « lourde », à vie ou à long terme. Pourquoi vous demander une chose pareille? Je vous le dirais : comme très probablement vous le savez déjà, tout produit pharmaceutique peut avoir des effets secondaires plus ou moins importants, en tout cas pas bienvenus… Il ne s’agit pas toujours forcément d’un médicament mal choisit ou de mauvaise qualité – ce qui compte le plus est le terrain, c’est-à-dire la façon dont votre corps est prêt à accueillir la molécule du médicament. Mais ne vous inquiétez pas – la raison pour laquelle je voudrais que vous apportiez vos médicaments avec vous est là : il est bien possible de trouver un compensateur qui puisse aider à diminuer, voir supprimer, ces effets indésirables qui risquent de vous provoquer des déséquilibres plus ou moins importants. Ceci étant dit, rien n’est décidé en avance, c’est toujours vos cellules qui diront si besoin d’un compensateur et qui le choisiront.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SCRIPT POUR FAIRE FONCTIONNER LES ONGLETS -->
+    <script>
+        function openTab(evt, tabName) {
+            // Cache tous les contenus
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].classList.remove("active");
+            }
+            
+            // Retire la classe "active" de tous les boutons
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            
+            // Affiche l'onglet cliqué et ajoute la classe "active" au bouton
+            document.getElementById(tabName).style.display = "block";
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.className += " active";
+        }
+    </script>
 
 </body>
 </html>
