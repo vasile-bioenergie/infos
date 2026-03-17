@@ -3,169 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vasile Veres | Bioénergéticien à Étriché (49) - Équilibre et Bien-être</title>
+    <title>Vasile Veres | Bioénergéticien à Étriché - Espace Santé Harmonia</title>
     
-    <!-- SEO : Mots clés et description pour Google -->
-    <meta name="description" content="Vasile Veres, praticien en bioénergie à l'Espace Santé Harmonia (Étriché). Libération des blocages énergétiques, bilans personnalisés et rééquilibrage vital.">
-    <meta name="keywords" content="Vasile Veres, bioénergie, énergéticien Maine-et-Loire, Étriché, Espace Santé Harmonia, équilibre énergétique, bien-être, méthode bioénergétique">
-    
+    <!-- SEO OPTIMISÉ -->
+    <meta name="description" content="Vasile Veres, praticien certifié en bioénergie à Étriché. Découvrez l'équilibre énergétique, la méthode Acmos et libérez vos blocages vitaux.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
+        /* CONFIGURATION GÉNÉRALE */
         :root {
-            --primary: #6a4c93; 
-            --secondary: #4caf50; 
-            --dark: #2c3e50;
-            --light: #f4f7f6;
+            --primary: #6a4c93;
+            --accent: #4caf50;
+            --glass: rgba(255, 255, 255, 0.85);
         }
 
-        body, html { margin: 0; padding: 0; font-family: 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333; scroll-behavior: smooth; }
-
-        /* HEADER & HERO */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('image_00.jpg') no-repeat center center/cover;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
+        body, html {
+            margin: 0; padding: 0;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            background: url('image_00.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            scroll-behavior: smooth;
         }
-        .hero-content h1 { font-size: clamp(2.5rem, 8vw, 4rem); margin-bottom: 10px; }
-        .hero-content p { font-size: clamp(1.2rem, 4vw, 1.8rem); font-weight: 300; }
 
-        .container { max-width: 900px; margin: auto; padding: 20px; }
-
-        section { padding: 80px 0; border-bottom: 1px solid #eee; }
-        h2 { color: var(--primary); text-align: center; margin-bottom: 30px; font-size: 2rem; }
-
-        /* PARCOURS (RÉSUMÉ) */
-        .bio-box { background: var(--light); padding: 30px; border-radius: 15px; border-left: 8px solid var(--secondary); margin: 20px 0; }
-
-        /* THERAPIE & IMAGES */
-        .illustrative-img { width: 100%; border-radius: 10px; margin: 30px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        .video-container { text-align: center; margin: 40px 0; }
-        video { width: 100%; max-width: 500px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-
-        /* TESTIMONIALS */
-        .testimonial { background: #fff; padding: 25px; border-radius: 10px; border: 1px solid #ddd; font-style: italic; margin-bottom: 20px; position: relative; }
-        .testimonial::before { content: "\201C"; font-size: 50px; color: var(--secondary); position: absolute; top: -10px; left: 10px; }
-
-        /* CONTACT GRID */
-        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 30px; }
-        .btn-contact {
-            text-decoration: none; padding: 18px; text-align: center; border-radius: 10px; color: white; font-weight: bold;
-            display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.3s;
+        /* NAVIGATION */
+        nav {
+            position: fixed; top: 0; width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: flex; justify-content: center;
         }
-        .btn-contact:hover { opacity: 0.9; transform: translateY(-3px); }
-        .whatsapp { background-color: #25D366; }
-        .sms { background-color: #3498db; }
-        .email { background-color: #e74c3c; }
+        nav ul { list-style: none; display: flex; margin: 0; padding: 15px; flex-wrap: wrap; justify-content: center; }
+        nav ul li { margin: 0 15px; }
+        nav ul li a { text-decoration: none; color: var(--primary); font-weight: 600; text-transform: uppercase; font-size: 0.9rem; transition: 0.3s; }
+        nav ul li a:hover { color: var(--accent); }
 
-        footer { text-align: center; padding: 50px; background: var(--dark); color: white; font-size: 0.9rem; }
+        /* STRUCTURE DES PAGES */
+        .page-section {
+            min-height: 100vh;
+            padding: 100px 20px 40px;
+            display: flex; flex-direction: column; align-items: center;
+            box-sizing: border-box;
+        }
 
-        /* RESPONSIVE */
+        .content-card {
+            background: var(--glass);
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 850px;
+            width: 100%;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        h1, h2 { color: var(--primary); text-align: center; }
+        h2 { border-bottom: 2px solid var(--accent); padding-bottom: 10px; margin-bottom: 30px; }
+
+        /* IMAGES ET MÉDIAS ADAPTÉS (NON ENVAHISSANTS) */
+        .img-container { text-align: center; margin: 20px 0; }
+        .img-small { max-width: 350px; width: 100%; border-radius: 12px; border: 3px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .video-small { max-width: 300px; width: 100%; border-radius: 15px; }
+
+        /* TÉMOIGNAGES */
+        .testimonial-grid { display: grid; gap: 20px; }
+        .testimonial { background: rgba(106, 76, 147, 0.1); padding: 20px; border-radius: 10px; border-left: 5px solid var(--primary); font-style: italic; }
+
+        /* CONTACT */
+        .contact-buttons { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 30px; }
+        .btn { text-decoration: none; padding: 15px; border-radius: 50px; color: white; text-align: center; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.3s; }
+        .btn:hover { transform: translateY(-3px); opacity: 0.9; }
+        .wa { background: #25D366; } .sms { background: #3498db; } .mail { background: #e74c3c; }
+
+        footer { text-align: center; padding: 20px; background: white; font-size: 0.8rem; margin-top: 40px; }
+
         @media (max-width: 600px) {
-            section { padding: 40px 0; }
-            .hero-content h1 { padding: 0 10px; }
+            nav ul li { margin: 5px 10px; }
+            .content-card { padding: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ACCUEIL -->
-    <header class="hero">
-        <div class="hero-content">
-            <h1>Vasile Veres</h1>
-            <p>Praticien en Bioénergie</p>
-            <p style="font-size: 1.1rem;">Rétablir l'harmonie du corps et de l'esprit</p>
-        </div>
-    </header>
+    <nav>
+        <ul>
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#bio">Qui suis-je ?</a></li>
+            <li><a href="#pratique">Ma Pratique</a></li>
+            <li><a href="#temoignages">Témoignages</a></li>
+            <li><a href="#infos">Infos Pratiques</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-    <div class="container">
-        
-        <!-- SECTION 1 : MON PARCOURS (Résumé du texte fourni) -->
-        <section id="parcours">
-            <h2>Mon Parcours & Ma Philosophie</h2>
-            <div class="bio-box">
-                <p>D'origine roumaine, mon parcours professionnel a été riche et diversifié, de l'industrie à l'horticulture biologique. C'est cette proximité avec la nature qui a fait germer en moi le désir d'aider les autres de manière plus profonde.</p>
-                <p>Formé à l'<strong>IBST</strong> (Institut de Bioénergétique et Synergétique Thérapeutique) par Jean-Christophe Soliverès, j'ai découvert une approche ancestrale et innovante. Aujourd'hui, je mets ce savoir au service de votre santé globale pour vous aider à surmonter les moments difficiles et les blocages là où les méthodes classiques ne trouvent pas toujours de réponse.</p>
-            </div>
-            
-            <div class="video-container">
-                <p><em>L'essence même de notre vitalité (ADN)</em></p>
-                <video autoplay loop muted playsinline>
+    <!-- ACCUEIL -->
+    <section id="accueil" class="page-section">
+        <div class="content-card" style="text-align: center;">
+            <h1>Vasile Veres</h1>
+            <p style="font-size: 1.3rem; color: #555;">Praticien en Bioénergie à l'Espace Santé Harmonia</p>
+            <p>Retrouvez votre équilibre vital et libérez vos blocages grâce à une approche globale de la santé.</p>
+            <div class="img-container">
+                <video autoplay loop muted playsinline class="video-small">
                     <source src="DNA.mp4" type="video/mp4">
                 </video>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- SECTION 2 : LA THÉRAPIE (Contenu complet de Wordpress) -->
-        <section id="therapie">
-            <h2>Qu'est-ce que la Bioénergie ?</h2>
-            <p>La bioénergie est une approche thérapeutique qui considère l'être humain dans sa globalité vibratoire. Selon les principes que je pratique, chaque trouble physique ou émotionnel trouve souvent son origine dans une rupture de la circulation énergétique.</p>
+    <!-- QUI SUIS-JE (RÉSUMÉ DU PARCOURS) -->
+    <section id="bio" class="page-section">
+        <div class="content-card">
+            <h2>Qui suis-je ?</h2>
+            <p>D’origine roumaine, mon parcours a débuté en 1982 et s’est enrichi au fil de métiers variés : industrie, commerce, jardinage et horticulture bio. C’est cette connexion profonde au vivant qui m’a mené vers la bioénergie.</p>
+            <p>Formé à l’<strong>IBST</strong> par Jean-Christophe Soliverès, j'ai trouvé ma vocation : contribuer régulièrement au bien-être de mon entourage. Mon approche est guidée par l'écoute, la patience et un savoir ancestral adapté aux besoins modernes pour (se) faire du bien et accompagner les moments difficiles.</p>
+        </div>
+    </section>
+
+    <!-- MA PRATIQUE (INFOS WORDPRESS + IMAGE 10) -->
+    <section id="pratique" class="page-section">
+        <div class="content-card">
+            <h2>La Thérapie Bioénergétique</h2>
+            <p>La bioénergie permet de mesurer et de rétablir les champs énergétiques qui entourent et animent chaque être humain. Je m'appuie sur des concepts de médecine traditionnelle et des innovations modernes pour identifier les blocages (physiques ou émotionnels).</p>
+            <p><strong>Le but de la séance :</strong> Rétablir la circulation fluide de l'énergie dans vos méridiens et chakras pour relancer les capacités naturelles d'auto-régulation de votre corps.</p>
             
-            <h3>Pourquoi consulter ?</h3>
-            <ul>
-                <li>Libération des blocages énergétiques et émotionnels.</li>
-                <li>Rééquilibrage des centres vitaux (Chakras) et des méridiens.</li>
-                <li>Gestion du stress, de la fatigue chronique et des tensions.</li>
-                <li>Soutien lors de situations médicales délicates ou de convalescence.</li>
-            </ul>
+            <div class="img-container">
+                <img src="image_10.jpg" alt="Équilibre énergétique" class="img-small">
+                <p><small>L'équilibre du Tore énergétique autour du corps.</small></p>
+            </div>
 
-            <h3>Le Bilan Bioénergétique</h3>
-            <p>Mon travail consiste à identifier les agressions (environnementales, psychologiques ou physiques) qui perturbent votre "Tore" énergétique. En rétablissant cette circulation, le corps retrouve ses capacités naturelles d'auto-régulation et de défense.</p>
-            
-            <img src="image_10.jpg" alt="Schéma de l'équilibre bioénergétique" class="illustrative-img">
-            <p style="text-align: center; font-style: italic;">Représentation de la circulation de l'énergie vitale autour du corps humain.</p>
-        </section>
+            <p>Cette méthode est particulièrement efficace pour les fatigues inexpliquées, le stress chronique ou en complément d'un suivi médical pour optimiser la récupération.</p>
+        </div>
+    </section>
 
-        <!-- SECTION 3 : INFOS PRATIQUES (Image 5 + Localisation) -->
-        <section id="infos">
+    <!-- TÉMOIGNAGES (BRUNO C. + AUTRES) -->
+    <section id="temoignages" class="page-section">
+        <div class="content-card">
+            <h2>Vos témoignages</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    "Je recommande le travail de Vasile les yeux fermés ! Il est attentionné et à l'écoute à chaque instant. Et surtout, je ressens clairement les bénéfices de mes bilans à son cabinet. Je suis très ravi de son accompagnement."
+                    <br><strong>— Bruno C., 25 ans</strong>
+                </div>
+                <div class="testimonial">
+                    "Une grande écoute et un professionnalisme rassurant. On se sent vraiment pris en charge dans notre globalité."
+                    <br><strong>— Marie L.</strong>
+                </div>
+                <div class="testimonial">
+                    "Vasile possède un vrai don pour apaiser les tensions. Les séances m'ont beaucoup aidé après une période de stress intense."
+                    <br><strong>— Jean-Pierre D.</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INFOS PRATIQUES (IMAGE 5) -->
+    <section id="infos" class="page-section">
+        <div class="content-card">
             <h2>Informations Pratiques</h2>
-            <p>Je vous reçois sur rendez-vous à mon cabinet situé au sein de l'<strong>Espace Santé HARMONIA</strong>, un lieu dédié à la sérénité et au soin.</p>
-            <p><i class="fas fa-map-marker-alt" style="color: var(--secondary);"></i> <strong>Adresse :</strong> Rue de la Mairie, 49330 Étriché, France.</p>
+            <p>Je vous accueille dans un cadre apaisant et professionnel au sein de l'Espace Santé Harmonia.</p>
+            <p><strong>Lieu :</strong> Étriché (49330), Maine-et-Loire.</p>
+            <div class="img-container">
+                <img src="image_5.jpg" alt="Cabinet Vasile Veres" class="img-small">
+                <p><small>Le cabinet de consultation en présentiel.</small></p>
+            </div>
+            <p><em>Séances sur rendez-vous uniquement.</em></p>
+        </div>
+    </section>
+
+    <!-- CONTACT (DIRECT SMS/WA/MAIL) -->
+    <section id="contact" class="page-section">
+        <div class="content-card">
+            <h2>Me contacter</h2>
+            <p style="text-align: center;">Vasile Veres<br><strong>07 82 20 94 04</strong><br>vasyridi108@gmail.com</p>
             
-            <img src="image_5.jpg" alt="Espace Santé Harmonia - Bureau de Vasile Veres" class="illustrative-img">
-        </section>
-
-        <!-- SECTION 4 : TÉMOIGNAGES -->
-        <section id="temoignages">
-            <h2>Ils m'ont fait confiance</h2>
-            <div class="testimonial">
-                "Je recommande le travail de Vasile les yeux fermés ! Il est attentionné et à l'écoute à chaque instant. Et surtout, je ressens clairement les bénéfices de mes bilans à son cabinet. Je suis très ravi de son accompagnement."
-                <br><br><strong>— Bruno C., 25 ans</strong>
+            <div class="contact-buttons">
+                <a href="https://wa.me/33782209404" class="btn wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="sms:+33782209404" class="btn sms"><i class="fas fa-comment-sms"></i> Envoyer un SMS</a>
+                <a href="mailto:vasyridi108@gmail.com" class="btn mail"><i class="fas fa-envelope"></i> Envoyer un Email</a>
             </div>
-            <div class="testimonial">
-                "Une approche très douce et des résultats surprenants sur ma fatigue chronique. Merci Vasile pour votre patience et votre professionnalisme."
-                <br><br><strong>— Cliente du cabinet</strong>
-            </div>
-        </section>
-
-        <!-- SECTION 5 : CONTACT (SMS, WhatsApp, Email) -->
-        <section id="contact">
-            <h2>Prendre Rendez-vous</h2>
-            <p style="text-align: center;">Vous souhaitez un bilan ou une séance ? Contactez-moi directement :</p>
-            <div class="contact-grid">
-                <a href="https://wa.me/33782209404" class="btn-contact whatsapp">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
-                </a>
-                <a href="sms:+33782209404" class="btn-contact sms">
-                    <i class="fas fa-comment-sms"></i> SMS
-                </a>
-                <a href="mailto:vasyridi108@gmail.com" class="btn-contact email">
-                    <i class="fas fa-envelope"></i> Email
-                </a>
-            </div>
-            <p style="text-align: center; margin-top: 30px;">
-                <i class="fas fa-phone"></i> <strong>07 82 20 94 04</strong>
-            </p>
-        </section>
-
-    </div>
+        </div>
+    </section>
 
     <footer>
-        <p>&copy; 2024 Vasile Veres - Praticien Bioénergéticien - Étriché (49)</p>
-        <p style="font-size: 0.7rem; margin-top: 10px;">Note : La bioénergie ne remplace en aucun cas un avis médical ou un traitement médical en cours.</p>
+        <p>&copy; 2024 Vasile Veres - Bioénergie Étriché | Hébergé sur GitHub</p>
     </footer>
 
 </body>
