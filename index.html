@@ -18,7 +18,7 @@
             line-height: 1.6;
         }
 
-        /* CONTENEUR PRINCIPAL BLANC (façon page Word/Wordpress) */
+        /* CONTENEUR PRINCIPAL BLANC */
         .main-container {
             max-width: 1000px;
             margin: 0 auto;
@@ -57,7 +57,7 @@
 
         /* BARRE DE MENU CLIQUEABLE */
         .menu-bar {
-            background-color: #1abc9c; /* Couleur cyan/turquoise classique Wordpress */
+            background-color: #1abc9c; /* Couleur principale */
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
@@ -82,20 +82,18 @@
         .video-banner {
             width: 100%;
             height: 250px;
-            object-fit: cover; /* Permet de couper la vidéo à l'horizontale proprement */
+            object-fit: cover;
             display: block;
         }
 
         /* CONTENU DES ONGLETS */
         .tab-content {
-            display: none; /* Masqué par défaut */
+            display: none;
             padding: 40px 50px;
             background-color: #ffffff;
             animation: fadeIn 0.5s;
         }
-        .tab-content.active {
-            display: block; /* Affiché si actif */
-        }
+        .tab-content.active { display: block; }
         .tab-content h2 {
             color: #444;
             font-size: 1.8rem;
@@ -107,6 +105,17 @@
             margin-bottom: 20px;
             text-align: justify;
         }
+
+        /* IMAGES INTÉGRÉES DANS LE TEXTE */
+        .content-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 20px auto;
+            display: block;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .img-small { max-width: 400px; }
 
         /* TÉMOIGNAGES */
         .testimonial-box {
@@ -123,20 +132,31 @@
             color: #1abc9c;
         }
 
-        /* BOUTONS DE CONTACT */
+        /* BOUTONS DE CONTACT SOBRES ET PLUS PETITS */
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin: 30px 0;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Plus compact */
+            gap: 10px;
+            margin: 25px 0;
         }
         .btn-contact {
-            text-decoration: none; padding: 15px; border-radius: 5px; color: white; text-align: center; font-weight: bold;
-            display: flex; align-items: center; justify-content: center; gap: 10px;
+            text-decoration: none; 
+            padding: 10px 15px; /* Marges réduites */
+            border-radius: 4px; 
+            color: white; 
+            text-align: center; 
+            font-weight: 500; /* Moins gras */
+            font-size: 0.95rem; /* Texte légèrement plus petit */
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            transition: 0.3s;
         }
-        .whatsapp { background-color: #25D366; }
-        .sms { background-color: #3498db; }
-        .email { background-color: #e74c3c; }
+        /* Déclinaison de teintes douces autour du turquoise/émeraude */
+        .whatsapp { background-color: #1b8a73; } /* Vert émeraude profond */
+        .whatsapp:hover { background-color: #146957; }
+        .sms { background-color: #48c9b0; } /* Turquoise doux */
+        .sms:hover { background-color: #1abc9c; }
+        .email { background-color: #76d7c4; color: #333; } /* Vert d'eau très clair */
+        .email:hover { background-color: #48c9b0; color: #fff; }
 
         /* ANIMATION */
         @keyframes fadeIn {
@@ -157,26 +177,26 @@
 
     <div class="main-container">
         
-        <!-- 1. IMAGE D'ACCUEIL EN HAUT -->
+        <!-- IMAGE D'ACCUEIL EN HAUT -->
         <img src="image_00.jpg" alt="Lotus" class="hero-image">
 
-        <!-- 2. TITRE DU SITE -->
+        <!-- TITRE DU SITE -->
         <div class="header-title">
             <h1>Vasile VERES bioénergéticien</h1>
             <p>- bilans/équilibrage énergétique, accompagnement bien-être -</p>
         </div>
 
-        <!-- 3. BARRE DE MENU (ONGLETS) -->
+        <!-- BARRE DE MENU (ONGLETS) -->
         <div class="menu-bar">
             <button class="tab-link active" onclick="openTab(event, 'therapie')">THÉRAPIE PROPOSÉE</button>
             <button class="tab-link" onclick="openTab(event, 'temoignages')">TÉMOIGNAGES</button>
             <button class="tab-link" onclick="openTab(event, 'infos')">INFORMATIONS PRATIQUES</button>
         </div>
 
-        <!-- 4. VIDÉO EN BANNIÈRE HORIZONTALE -->
-        <video src="DNA.mp4" class="video-banner" autoplay loop muted playsinline></video>
+        <!-- VIDÉO EN BANNIÈRE HORIZONTALE -->
+        <video id="dna-video" src="DNA.mp4" class="video-banner" autoplay loop muted playsinline></video>
 
-        <!-- 5. CONTENU DES RUBRIQUES -->
+        <!-- CONTENU DES RUBRIQUES -->
         
         <!-- RUBRIQUE : THÉRAPIE -->
         <div id="therapie" class="tab-content active">
@@ -185,7 +205,7 @@
             
             <p>En tout premier rang, je vous propose qu’on se méfie (autant moi que vous) de faire la moindre comparaison à d’autres thérapies/activités énergétiques – chaque chose a sa place et beaucoup sont bien complémentaires. Il reste à chacun(e) de suivre…son instinct, ses ressentis intérieurs et choisir un chemin ou un autre (tout en gardant à l’esprit qu’à tout moment nous sommes en droit de changer de direction, passer sur un autre chemin).</p>
             
-            <p>La bioénergétique – comme thérapie- se base sur des principes à la fois de la physique classique et de la quantique (alors qu’elle est une branche de la biochimie!). C’est-à-dire : les interactions entre les champs électro-magnétiques et les forces qui peuvent intervenir et transformer ces pulsations en force motrice, mécanique – étudiées par la physique classique- sont combinées avec le principe des ondes scalaires et les résonances osmotiques, connues plutôt dans la physique quantique.</p>
+            <p>La bioénergétique – comme thérapie- se base sur des principes à la fois de la physique classique et de la quantique (alors qu’elle est une branche de la biochimie!). C’est-à-dire : les interactions entre les champs électro-magnétiques et les forces qui peuvent intervenir et transformées ces pulsations en force motrice, mécanique – étudiées par la physique classique- sont combinées avec le principe des ondes scalaires et les résonances osmotiques, connues plutôt dans la physique quantique.</p>
             
             <p>Comment cela fonctionne-t-il? Une fois que la personne désireuse – on va l’appeler « sujet » (d’une recherche)- donne son accord, avec le thérapeute et l’intermédiaire (qui est une antenne) un circuit se crée. Un circuit par lequel le corps du sujet interrogé fournit des réponses aux questions formulées par le thérapeute et adressées directement…aux cellules du corps investigué. Ainsi, le corps décide et informe sur les possibles actions auxquelles il est prêt à faire face et dans quel ordre – pour retrouver son équilibre. Le générateur du circuit (le thérapeute) cherchant une vibration correspondant à une fréquence choisie par rapport à la question à poser, provoque une onde électro-magnétique qui induit (dans l’intermédiaire – l’antenne) un courant de Foucault qui rend l’antenne sensible aux forces de Laplace. Résultat : l’énergie électro-magnétique est convertie (par résonance et rupture d’équilibre) en énergie mécanique. Cela mène à un basculement de l’instrument – que l’on traduit en réponse à la question.</p>
             
@@ -198,6 +218,9 @@
             <p>Espérant d’avoir été assez clair et que les choses vous semblent maintenant plus simples, je vous invite à réfléchir et…décider de venir me voir pour vous donner la chance de poser les questions restées sans réponse.</p>
             
             <p>A bientôt – si vous auriez besoin de plus de temps pour réfléchir, revenez au moins ici, peut-être trouverez-vous d’autres articles postés qui vous aideront. J’estime pouvoir compter aussi sur des témoignages des personnes que je suis déjà. Je suis en attente de ces retours.</p>
+            
+            <!-- IMAGE 10 À LA TOUTE FIN DE LA RUBRIQUE THÉRAPIE -->
+            <img src="image_10.jpg" alt="Le Tore Énergétique" class="content-image img-small">
         </div>
 
         <!-- RUBRIQUE : TÉMOIGNAGES -->
@@ -228,7 +251,7 @@
             
             <p>Maintenant, si vous êtes là, on va supposer que vous êtes vraiment intéressé(e) et alors…je vous dois la suite, non? C’est-à-dire les infos qui pourront vous emmener à moi, au cabinet. Avant tout, il serait bien que vous me contactiez – soit par mail (vasyridi108@gmail.com), soit au téléphone : 07 82 20 94 04 (SMS ou appel).</p>
             
-            <!-- BOUTONS DE CONTACT DIRECT -->
+            <!-- BOUTONS DE CONTACT SOBRES ET RÉDUITS -->
             <div class="contact-grid">
                 <a href="https://wa.me/33782209404" class="btn-contact whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                 <a href="sms:+33782209404" class="btn-contact sms"><i class="fas fa-comment-sms"></i> SMS</a>
@@ -237,6 +260,9 @@
 
             <p>Une fois établi le contact (et le rendez-vous, de préférence..), vous devez vous déplacer vers la commune d’Etriché (sauf si vous habitez trop loin et..vous optez pour les bilans à distance). Quand vous serez arrivé(e) dans la commune, le cabinet se trouve dans l’espace L’Harmonia, l’adresse est : <strong>5B rue du Patisseau (code postal 49330)</strong>. Que vous arriviez du côté d’Angers ou Mans, vous allez traverser la commune vers l’église, après vous montez vers le cimetière et…l’espace se trouve juste là, face à ce joyeux lieu.</p>
             
+            <!-- IMAGE 5 INTÉGRÉE ICI -->
+            <img src="image_5.jpg" alt="Bureau du cabinet" class="content-image img-small" style="margin: 30px auto;">
+
             <p>Avant de prendre le rendez-vous, je vous précise aussi les tarifs (espérant que ce « détail » ne vous refroidira pas..) :</p>
             <ul>
                 <li><strong>Pour un bilan complet</strong> (le plus indiqué toujours, pour aller au plus profond et faire « le point ») : 50 euros, (40 euros pour enfants).</li>
@@ -252,32 +278,46 @@
 
             <p>Si jamais vous attendez pour la partie « témoignages » -encore en construction-, sachez que moi aussi…j’attends pour faire un recueil de retours assez intéressant à poster/lire. Merci encore de votre attention et patience, à bientôt!</p>
 
-            <div style="background-color: #fff3cd; border-left: 5px solid #ffc107; padding: 20px; margin-top: 30px;">
-                <h3 style="color: #856404; margin-top:0;">Important à savoir !</h3>
-                <p style="color: #856404; margin-bottom: 0;">Une chose qui est loin d’être anodine : pour toute personne désirant me voir (pour un bilan/soin, évidemment..) et ayant un traitement médical en cours, il serait convenable de venir au cabinet avec tous les médicaments – surtout s’il s’agit d’une médication « lourde », à vie ou à long terme. Pourquoi vous demander une chose pareille? Je vous le dirais : comme très probablement vous le savez déjà, tout produit pharmaceutique peut avoir des effets secondaires plus ou moins importants, en tout cas pas bienvenus… Il ne s’agit pas toujours forcément d’un médicament mal choisit ou de mauvaise qualité – ce qui compte le plus est le terrain, c’est-à-dire la façon dont votre corps est prêt à accueillir la molécule du médicament. Mais ne vous inquiétez pas – la raison pour laquelle je voudrais que vous apportiez vos médicaments avec vous est là : il est bien possible de trouver un compensateur qui puisse aider à diminuer, voir supprimer, ces effets indésirables qui risquent de vous provoquer des déséquilibres plus ou moins importants. Ceci étant dit, rien n’est décidé en avance, c’est toujours vos cellules qui diront si besoin d’un compensateur et qui le choisiront.</p>
+            <!-- ENCART IMPORTANT -->
+            <div style="background-color: #f0fdf4; border-left: 5px solid #1abc9c; padding: 20px; margin-top: 30px; border-radius: 4px;">
+                <h3 style="color: #146957; margin-top:0;">Important à savoir !</h3>
+                <p style="color: #333; margin-bottom: 0;">Une chose qui est loin d’être anodine : pour toute personne désirant me voir (pour un bilan/soin, évidemment..) et ayant un traitement médical en cours, il serait convenable de venir au cabinet avec tous les médicaments – surtout s’il s’agit d’une médication « lourde », à vie ou à long terme. Pourquoi vous demander une chose pareille? Je vous le dirais : comme très probablement vous le savez déjà, tout produit pharmaceutique peut avoir des effets secondaires plus ou moins importants, en tout cas pas bienvenus… Il ne s’agit pas toujours forcément d’un médicament mal choisit ou de mauvaise qualité – ce qui compte le plus est le terrain, c’est-à-dire la façon dont votre corps est prêt à accueillir la molécule du médicament. Mais ne vous inquiétez pas – la raison pour laquelle je voudrais que vous apportiez vos médicaments avec vous est là : il est bien possible de trouver un compensateur qui puisse aider à diminuer, voir supprimer, ces effets indésirables qui risquent de vous provoquer des déséquilibres plus ou moins importants. Ceci étant dit, rien n’est décidé en avance, c’est toujours vos cellules qui diront si besoin d’un compensateur et qui le choisiront.</p>
             </div>
+
+            <!-- CARTE GOOGLE MAPS À LA TOUTE FIN -->
+            <div style="margin-top: 40px;">
+                <h3 style="color: #444; font-size: 1.2rem; text-align: center;">Plan d'accès au Cabinet</h3>
+                <iframe 
+                    src="https://maps.google.com/maps?q=47.64992,-0.440997&hl=fr&z=16&output=embed" 
+                    width="100%" 
+                    height="350" 
+                    style="border:0; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+
         </div>
 
     </div>
 
-    <!-- SCRIPT POUR FAIRE FONCTIONNER LES ONGLETS -->
     <script>
+        // SCRIPT POUR RALENTIR LA VIDÉO
+        // 0.5 = 50% de la vitesse normale
+        document.getElementById("dna-video").playbackRate = 0.5;
+
+        // SCRIPT POUR FAIRE FONCTIONNER LES ONGLETS
         function openTab(evt, tabName) {
-            // Cache tous les contenus
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tab-content");
             for (i = 0; i < tabcontent.length; i++) {
                 tabcontent[i].style.display = "none";
                 tabcontent[i].classList.remove("active");
             }
-            
-            // Retire la classe "active" de tous les boutons
             tablinks = document.getElementsByClassName("tab-link");
             for (i = 0; i < tablinks.length; i++) {
                 tablinks[i].className = tablinks[i].className.replace(" active", "");
             }
-            
-            // Affiche l'onglet cliqué et ajoute la classe "active" au bouton
             document.getElementById(tabName).style.display = "block";
             document.getElementById(tabName).classList.add("active");
             evt.currentTarget.className += " active";
